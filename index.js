@@ -6,7 +6,7 @@ var request = require('request');
 // For JSON Parsing
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended : true }));
+app.use(bodyParser.urlencoded({ extended : true }));
 
 // Setting the Router at Port 9001
 app.set('port', (process.env.PORT || 9001));
@@ -17,11 +17,13 @@ app.get('/', function(req, res) {
     console.log("It's live on port:", port);
 });
 
+
+// POST request
 app.post('/post', function(req, res) {
     var parsedUrl = url.format ({
-        pathname = // API URL ,
+        pathname : 'https://api.genius.com/search', // API URL ,
         query: {
-            access_token : process.env.GOOGLE_ACCESS
+            access_token : process.env.GOOGLE_ACCESS,1
             query : req.body.text
         }
     });
@@ -29,14 +31,14 @@ app.post('/post', function(req, res) {
     request(parsedUrl, function (error,req, res) {
         if (!error && response.statusCode == 200) {
             var data = JSON.parse(body);
-            var //firstendpoint = data.endpoint;
+            var ans = data.response.hits[0].result.url; //firstendpoint = data.endpoint;
 
             var body = {
                 response_type : "in_channel",
-                text: //firstendpoint
+                text: ans //firstendpoint
             };
 
-        res.send('body');
+        res.send(body);
     }
 
    });
