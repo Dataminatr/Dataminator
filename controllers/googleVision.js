@@ -1,4 +1,5 @@
 process.env.GOOGLE_APPLICATION_CREDENTIALS = __dirname + '/../config/Launchhack_Project_1142-3df5aed82da3.json';
+
 var gcvisionapi = require(__dirname + '/../node_modules/gc-vision-api/src/gc-vision-api.js');
 var VisionApi = gcvisionapi.VisionApi;
 var Feature= gcvisionapi.Feature;
