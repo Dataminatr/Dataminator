@@ -13,7 +13,7 @@ router.post('/', function(req, res){
   var imageURL = req.body.text;
   var image;
   https.get(imageURL, function(res){
-    res.on('data', function(chuck){
+    res.on('data', function(chunk){
       image += chunk;
     })
 
