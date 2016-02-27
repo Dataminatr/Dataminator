@@ -9,12 +9,12 @@ var client = VisionApi.init(
     });
 
 module.exports = {
-  visionImage: function(image,feature, callback){
+  visionImage: function(imageURL,feature, callback){
     var request = client.request();
-    var imageGS = Image.local(image);
+    var image = Image.remote(imageURL);
 
   request
-  .image(imageGS)
+  .image(image)
   .feature(Feature[feature], 2)
   .subscribe(function(result){
     console.log(result)
