@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "node"
+test: true
 deploy:
   provider: heroku
   app: mysterious-brushlands-31379
