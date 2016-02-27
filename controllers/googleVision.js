@@ -1,5 +1,3 @@
-var gcvisionapi = require(__dirname + '/../node_modules/gc-vision-api/src/gc-vision-api');
-
 var VisionApi = gcvisionapi.VisionApi;
 var Feature= gcvisionapi.Feature;
 var Image = gcvisionapi.Image;
@@ -10,9 +8,9 @@ var client = VisionApi.init(
     });
 
 module.exports = {
-  visionImage: function(imageURL,feature, callback){
+  visionImage: function(image,feature, callback){
     var request = client.request();
-    var imageGS = Image.bucket(imageURL);
+    var imageGS = Image.local(image);
 
   request
   .image(imageGS)
