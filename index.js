@@ -1,8 +1,7 @@
 var express = require('express');
 var app = express();
 var url = require('url');
-var router = express.Router();
-
+var request = require('request');
 
 // For JSON Parsing
 var bodyParser = require('body-parser');
