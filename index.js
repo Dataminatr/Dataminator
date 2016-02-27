@@ -1,5 +1,3 @@
-process.env.GOOGLE_APPLICATION_CREDENTIALS = '/home/ronll/Documents/Dataminator/config/testVisionApi-02064f733b63.json';
-
 var express = require('express');
 var app = express();
 var slackRoutes = require(__dirname + '/routers/slackRouter.js')
