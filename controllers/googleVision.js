@@ -1,4 +1,4 @@
-var gcvisionapi = require(__dirname + '/node_modules/gc-vision-api/src/gc-vision-api.js');
+var gcvisionapi = require(__dirname + '/../node_modules/gc-vision-api/src/gc-vision-api.js');
 var VisionApi = gcvisionapi.VisionApi;
 var Feature= gcvisionapi.Feature;
 var Image = gcvisionapi.Image;
