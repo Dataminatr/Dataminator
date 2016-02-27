@@ -21,7 +21,6 @@ router.post('/', function(req, res){
       console.log(image);
     })
   });
-
 });
 
 module.exports = router;
