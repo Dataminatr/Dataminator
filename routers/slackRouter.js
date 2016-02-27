@@ -13,19 +13,11 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/', function(req, res){
   var imageURL = req.body.text;
-  var image;
-  https.get(imageURL, function(res){
-    res.on('data', function(chunk){
-      image += chunk;
-    })
 
-    res.on('end', function() {
-      console.log(image);
-      googleVision.visionImage( image, 'TextDetection', function(err,result){
-	console.log(result, 'text detection');
-      })
-    })
-  });
+  googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
+    console.log(result);
+    res.end(result);
+  })
 });
 
 module.exports = router;
