@@ -23,7 +23,7 @@ app.post('/post', function(req, res) {
     var parsedUrl = url.format ({
         pathname : 'https://api.genius.com/search', // API URL ,
         query: {
-            access_token : process.env.GOOGLE_ACCESS,1
+            access_token : process.env.GOOGLE_ACCESS,
             q : req.body.text
         }
     });
@@ -42,4 +42,8 @@ app.post('/post', function(req, res) {
     }
 
    });
+});
+
+app.listen(app.get('post'), function() {
+    console.log('Data app is working on port', app.get('port'));
 });
