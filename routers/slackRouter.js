@@ -15,7 +15,7 @@ router.post('/', function(req, res){
 
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
     res.send('request processing...');
-    console.log(req);
+    console.log(req.body.response_url);
   })
 });
 
