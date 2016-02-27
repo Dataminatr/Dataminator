@@ -24,7 +24,4 @@
     "url": "https://github.com/Dataminatr/Dataminator/issues"
   },
   "homepage": "https://github.com/Dataminatr/Dataminator#readme",
-  "dependencies": {
-    "express": "^4.13.4"
-  }
 }
