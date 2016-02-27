@@ -13,7 +13,7 @@ app.listen(app.get('port'), function() {
 });
 
 /*
-googleVision.visionImage( 'ronimage/1771931_orig.jpg', 'TextDetection', function(err,result){
+googleVision.visionImage('ronimage/1771931_orig.jpg', 'TextDetection', function(err,result){
   console.log(result);
 })
 */
