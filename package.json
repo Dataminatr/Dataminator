@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Dataminatr/Dataminator#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "gc-vision-api": "^0.1.0"
   }
 }
