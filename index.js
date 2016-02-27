@@ -24,7 +24,7 @@ app.post('/post', function(req, res) {
         pathname : 'https://api.genius.com/search', // API URL ,
         query: {
             access_token : process.env.GOOGLE_ACCESS,1
-            query : req.body.text
+            q : req.body.text
         }
     });
 
