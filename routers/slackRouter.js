@@ -7,7 +7,6 @@ var https = require('https');
 var fs = require('fs');
 var googleVision = require(__dirname + '/../controllers/googleVision.js')
 
-
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -15,7 +14,7 @@ router.post('/', function(req, res){
   var imageURL = req.body.text;
 
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
-    console.log(result);
+    console.log('Result:', result);
     res.end(result);
   })
 });
