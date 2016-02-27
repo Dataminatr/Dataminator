@@ -1,2 +1,7 @@
 node_modules
+<<<<<<< HEAD
 auth.md
+=======
+*.swo
+*.swp
+>>>>>>> 76f82d62052d3430a77cd344e9f9d4ef997e3c17

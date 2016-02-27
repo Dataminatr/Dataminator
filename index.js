@@ -1,5 +1,8 @@
+process.env.GOOGLE_APPLICATION_CREDENTIALS = '/home/ronll/Documents/Dataminator/modules/../config/testVisionApi-02064f733b63.json';
+
 var express = require('express');
 var app = express();
+
 var url = require('url');
 var request = require('request');
 
@@ -40,3 +43,10 @@ app.post('/post', function(req, res){
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+var slackRouter =  require('./routers/slack.js')
+var googleVision = require(__dirname + '/controllers/googleVision.js')
+
+googleVision.visionImage( 'ronimage/IMG_0191.JPG', 'LabelDetection', function(err,result){
+  console.log(result);
+})
