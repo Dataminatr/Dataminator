@@ -30,6 +30,7 @@ router.post('/', function(req, res){
       uri: responseURL,
       method: 'POST',
       json: {
+	"response_type": "in_channel",
 	"username": "Dataminator",
 	"text": message
       }
