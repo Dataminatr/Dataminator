@@ -45,9 +45,9 @@ router.post('/', function(req, res){
       }
     };
 
-  request(options, function( err, response, body){
-    if(err) console.log(err);
-  });
+    request(options, function( err, response, body){
+      if(err) console.log(err);
+    });
   })
 });
 
