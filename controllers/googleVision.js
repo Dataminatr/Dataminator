@@ -19,7 +19,6 @@ module.exports = {
       .image(image)
       .feature(Feature[feature], 2)
       .subscribe(function(result){
-	console.log(result)
 	var err = null;
         var parsedResult = JSON.parse(result);
         callback(err, parsedResult);

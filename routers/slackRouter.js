@@ -11,7 +11,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/', function(req, res){
-  console.log(req);
+  console.log('this is it',req.body);
   var imageURL = req.body.text;
   res.send('request processing...');
 
