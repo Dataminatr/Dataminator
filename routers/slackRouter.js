@@ -29,7 +29,10 @@ router.post('/', function(req, res){
       }
     };
 
-    request(options);
+    request(options, function( err, response, body){
+      if(err) console.log(err);
+      console.log('body:', body, 'response:', response);
+    });
   })
 });
 
