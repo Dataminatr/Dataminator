@@ -31,7 +31,6 @@ router.post('/', function(req, res){
       method: 'POST',
       json: {
 	"username": "Dataminator",
-        "response_type": "in_channel",
 	"text": message
       }
     };
