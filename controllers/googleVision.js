@@ -21,8 +21,8 @@ module.exports = {
       .subscribe(function(result){
 	console.log(result)
 	var err = null;
-      var parsedResult = JSON.parse(result);
-      callback(err, parsedResult);
+        var parsedResult = JSON.parse(result);
+        callback(err, parsedResult);
       });
   }
 }
