@@ -14,10 +14,10 @@ router.post('/', function(req, res){
   res.send('request processing...');
 
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
+    console.log('result!!!!:', result);
 
     var text = result.body.responses[0].textAnnotations[0].description;
 
-    console.log('result!!!!:', result);
 
     var options = {
       uri: 'https://hooks.slack.com/commands/T0P9WTN3D/23404613106/l3x5HGnINuHrXz2sk50k4PO4',
