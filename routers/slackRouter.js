@@ -14,6 +14,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.post('/', function(req, res){
   var imageURL = req.body.text;
   var userName = req.body.user_name;
+  var userId = req.body.user_id;
   var responseURL = req.body.response_url;
 
   res.send('processing request ...');
@@ -35,7 +36,7 @@ router.post('/', function(req, res){
 	    "color": "#1aa3ff",
 	    "title": "Document Download",
             "title_link": link,
-            "author_name": 'Courtesy of @' + userName,
+            "author_name": 'Courtesy of <@'+ userId + '|' + userName + '>',
 	    "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
             "text": lorem,
 	    "mrkdwn_in": ["text", "pretext", "author_name"]
