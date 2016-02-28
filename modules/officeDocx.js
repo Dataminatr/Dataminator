@@ -31,7 +31,7 @@ module.exports = function(text){
   var pObj = docx.createP ();	 
 
   pObj.addText ( '\nMade with unicorn\'s tears from Dataminator\n', {font_face: 'URW Gothic L'});
-  pObj.addImage ( __dirname + '/../assets/Robot.icon' ) ;
+  pObj.addImage ( __dirname + '/../assets/Robot.ico' ) ;
 
   var filename = generateName().replace(/\W+/g, '-').toLowerCase() + Date.now() + '.docx';
   var remoteWriteStream = bucket.file(filename).createWriteStream();
