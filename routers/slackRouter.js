@@ -13,6 +13,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/', function(req, res){
   var imageURL = req.body.text;
+  var userName = req.body.user_name;
   var responseURL = req.body.response_url;
     
   res.send('request processing...');
@@ -20,6 +21,10 @@ router.post('/', function(req, res){
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
 
     var text = result.responses[0].textAnnotations[0].description;
+    var message = "" + 
+                  "Hey guys " + userName + " wants to share this :memo: \n" + "<" + link + ">" + 
+                  ""
+  
 
     var link = officeDocs(text);
     var options = {
@@ -27,7 +32,7 @@ router.post('/', function(req, res){
       method: 'POST',
       json: {
 	"username": "Dataminator",
-	"text": link
+	"text": "Download the document:" + '<' + link + '>'
       }
     };
 
