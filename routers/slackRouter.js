@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var https = require('https');
 var fs = require('fs');
 var googleVision = require(__dirname + '/../controllers/googleVision.js');
-var OfficeDocs = require(__dirname + '/../modules/officeDocx.js')
+var officeDocs = require(__dirname + '/../modules/officeDocx.js')
 //var driveAuth = require(__dirname + '/../modules/driveAuth.js');
 
 router.use(bodyParser.json());
