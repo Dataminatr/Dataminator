@@ -28,7 +28,6 @@ router.post('/', function(req, res){
     };
 
     request(options);
-
   })
 });
 
