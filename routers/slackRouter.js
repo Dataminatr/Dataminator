@@ -21,12 +21,11 @@ router.post('/', function(req, res){
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
 
     var text = result.responses[0].textAnnotations[0].description;
+    var link = officeDocs(text);
     var message = "" + 
                   "Hey guys " + userName + " wants to share this :memo: \n" + "<" + link + ">" + 
                   ""
-  
 
-    var link = officeDocs(text);
     var options = {
       uri: responseURL,
       method: 'POST',
