@@ -5,7 +5,7 @@ var gcloud = require('gcloud');
 
 var gcs = gcloud.storage({
   projectId: 'launchhack-1142',
-    keyFilename: GOOGLE_APPLICATION_CREDENTIALS 
+    keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS 
 });
 
 var bucket = gcs.bucket('datadocs');
