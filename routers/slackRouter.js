@@ -22,6 +22,7 @@ router.post('/', function(req, res){
 
     var text = result.responses[0].textAnnotations[0].description;
     var link = officeDocs(text);
+    var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et felis libero. Pellentesque habitant morbi tristique senectus et netus et."
 
     var options = {
       uri: responseURL,
@@ -36,7 +37,8 @@ router.post('/', function(req, res){
 	    "title": "Document Download",
             "title_link": link,
 	    "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
-	    "mrkdwn_in": ["text", "pretext"]
+            "text": lore,
+	    "mrkdwn_in": ["text", "pretext", "author_name"]
 	  }
 	], 
       }
