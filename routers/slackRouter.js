@@ -16,12 +16,8 @@ router.post('/', function(req, res){
 
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
 
-    console.log('result!!!', result);
-    console.log('responses[0]', result.responses);
-    console.log('textAbbitatuibs', result.responses[0].textAnnotations);
-    console.log('result.responses[0].textAnnotations[0]', result.responses[0].textAnnotations[0]);
-
     var text = result.responses[0].textAnnotations[0].description;
+    console.log(text);
 
     var options = {
       uri: 'https://hooks.slack.com/commands/T0P9WTN3D/23404613106/l3x5HGnINuHrXz2sk50k4PO4',
