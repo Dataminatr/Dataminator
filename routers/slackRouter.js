@@ -37,7 +37,7 @@ router.post('/', function(req, res){
 	    "title": "Document Download",
             "title_link": link,
 	    "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
-            "text": lore,
+            "text": lorem,
 	    "mrkdwn_in": ["text", "pretext", "author_name"]
 	  }
 	], 
