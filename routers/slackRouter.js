@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var url = require('url');
 var request = require('request');
 var bodyParser = require('body-parser');
 var https = require('https');
@@ -12,10 +11,24 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/', function(req, res){
   var imageURL = req.body.text;
+  res.send('request processing...');
 
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
-    res.send('request processing...');
-    console.log(req.body.response_url);
+
+    var text = result.responses[0].textAnnotations[0].description;
+
+    var options = {
+      uri: 'https://hooks.slack.com/commands/T0P9WTN3D/23404613106/l3x5HGnINuHrXz2sk50k4PO4',
+      method: 'POST',
+      json: {
+        "username": "Dataminator",
+        "icon_emoji": ":robot_face:",
+        "text": text 
+      }
+    };
+
+    request(options);
+
   })
 });
 
