@@ -15,13 +15,14 @@ module.exports = {
     var request = client.request();
     var image = Image.remote(imageURL);
 
-  request
-  .image(image)
-  .feature(Feature[feature], 2)
-  .subscribe(function(result){
-    console.log(result)
-    var err = null;
-    callback(err, result);
-  });
+    request
+      .image(image)
+      .feature(Feature[feature], 2)
+      .subscribe(function(result){
+	console.log(result)
+	var err = null;
+      var parsedResult = JSON.parse(result);
+      callback(err, parsedResult);
+      });
   }
 }
