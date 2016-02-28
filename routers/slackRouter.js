@@ -23,7 +23,7 @@ router.post('/', function(req, res){
     var text = result.responses[0].textAnnotations[0].description;
     var link = officeDocs(text);
     var message = "" + 
-                  "Hey guys " + userName + " wants to share this :memo: \n" + "<" + link + "|Download>" + 
+                  "" + userName + " wants to share this \n" + "< " + link + "|:memo::printer:Download:arrow_double_down:>" + 
                   ""
 
     var options = {
