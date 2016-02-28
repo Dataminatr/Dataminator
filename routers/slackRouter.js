@@ -27,27 +27,35 @@ router.post('/', function(req, res){
 
     var options = {
       uri: responseURL,
-      method: 'POST',
-      json: {
-	"response_type": "in_channel",
-	"username": "Dataminator",
-	"attachments": [
-	  {
-	    "color": "#1aa3ff",
-	    "title": "Document Download",
-            "title_link": link,
-            "author_name": 'Courtesy of <@'+ userId + '|' + userName + '>',
-	    "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
-            "text": lorem,
-	    "mrkdwn_in": ["text", "pretext", "author_name"]
-	  }
-	], 
-      }
+    method: 'POST',
+    json: {
+      "response_type": "in_channel",
+    "username": "Dataminator",
+    "attachments": [
+  {
+    "color": "#1aa3ff",
+    "title": "Document Download",
+    "title_link": link,
+    //"author_name": 'Courtesy of <@'+ userId + '|' + userName + '>',
+    "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
+    "text": lorem,
+    "fields": [
+    {
+      "title": "Courtesy Of",
+      "value": '<@'+ userId + '|' + userName + '>',
+      "short": false
+    }
+  ],
+
+    "mrkdwn_in": ["text", "pretext", "fields" ]
+  }
+  ], 
+    }
     };
 
-    request(options, function( err, response, body){
-      if(err) console.log(err);
-    });
+  request(options, function( err, response, body){
+    if(err) console.log(err);
+  });
   })
 });
 
