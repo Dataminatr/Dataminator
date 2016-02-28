@@ -16,7 +16,7 @@ router.post('/', function(req, res){
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
 
     console.log('responses[0]', result.responses[0]);
-    console.log('textAbbitatuibs', result.responses[0].textAnnotations;
+    console.log('textAbbitatuibs', result.responses[0].textAnnotations);
     console.log('result.responses[0].textAnnotations[0]', result.responses[0].textAnnotations[0]);
     
     var text = result.responses[0].textAnnotations[0].description;
