@@ -10,7 +10,7 @@ var gcs = gcloud.storage({
 
 var bucket = gcs.bucket('datadocs');
 
-modules.export = function(text){
+module.exports = function(text){
 
   var docx = officegen ( 'docx' );
 
