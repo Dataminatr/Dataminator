@@ -16,14 +16,14 @@ router.post('/', function(req, res){
   var userName = req.body.user_name;
   var responseURL = req.body.response_url;
     
-  res.send('request processing...');
+  res.send('processing request ...');
 
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
 
     var text = result.responses[0].textAnnotations[0].description;
     var link = officeDocs(text);
     var message = "" + 
-                  "Hey guys " + userName + " wants to share this :memo: \n" + "<" + link + ">" + 
+                  "Hey guys " + userName + " wants to share this :memo: \n" + "<" + link + "|Download>" + 
                   ""
 
     var options = {
