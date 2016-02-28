@@ -2,7 +2,8 @@ var officegen = require('officegen');
 var generateName = require('sillyname');
 var fs = require('fs');
 var path = require('path');
-var gcloud = require('gcloud');
+var gcloud = require('gcloud'); 
+var SummaryTool = require('node-summary');
 
 var gcs = gcloud.storage({
   projectId: 'launchhack-1142',
@@ -13,6 +14,7 @@ var cloudStorageBucket = 'datadocs';
 var bucket = gcs.bucket(cloudStorageBucket);
 
 module.exports = function(text){
+
 
   var docx = officegen ( 'docx' );
 

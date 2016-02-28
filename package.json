@@ -12,6 +12,7 @@
     "google-auth-library": "^0.9.7",
     "googleapis": "^2.1.7",
     "lodash": "^4.5.0",
+    "node-summary": "^1.1.0",
     "officegen": "^0.2.9",
     "request": "^2.69.0",
     "sillyname": "^0.1.0"

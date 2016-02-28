@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var bodyParser = require('body-parser');
+var SummaryTool = require('node-summary');
 var https = require('https');
 var fs = require('fs');
 var googleVision = require(__dirname + '/../controllers/googleVision.js');
@@ -23,7 +24,13 @@ router.post('/', function(req, res){
 
     var text = result.responses[0].textAnnotations[0].description;
     var link = officeDocs(text);
-    var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et felis libero. Pellentesque habitant morbi tristique senectus et netus et."
+
+    var summery;
+    SummaryTool.summarize("", text, function(err, output) {
+      if(err) console.log("Something went wrong man!");
+      if(output.length > 270) output = output.slice(0, 270) + "...";
+      summery = output;
+    });
 
     var options = {
       uri: responseURL,
@@ -32,23 +39,22 @@ router.post('/', function(req, res){
       "response_type": "in_channel",
     "username": "Dataminator",
     "attachments": [
-  {
-    "color": "#1aa3ff",
-    "title": "Document Download",
-    "title_link": link,
-    //"author_name": 'Courtesy of <@'+ userId + '|' + userName + '>',
-    "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
-    "text": lorem,
-    "fields": [
     {
-      "title": "Courtesy Of",
-      "value": '<@'+ userId + '|' + userName + '>',
-      "short": false
-    }
-  ],
+      "color": "#1aa3ff",
+      "title": "Download Document",
+      "title_link": link,
+      "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
+      "text": summery,
+      "fields": [
+      {
+	"title": "Courtesy Of",
+	"value": '<@'+ userId + '|' + userName + '>',
+	"short": false
+      }
+      ],
 
-    "mrkdwn_in": ["text", "pretext", "fields" ]
-  }
+	"mrkdwn_in": ["text", "pretext", "fields" ]
+    }
   ], 
     }
     };
