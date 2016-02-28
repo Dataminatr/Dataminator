@@ -33,9 +33,9 @@ router.post('/', function(req, res){
 	"attachments": [
 	  {
 	    "color": "#1aa3ff",
-            "author_name": 'Courtesy of @' + userName,
 	    "title": "Document Download",
             "title_link": link,
+            "author_name": 'Courtesy of @' + userName,
 	    "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
             "text": lorem,
 	    "mrkdwn_in": ["text", "pretext", "author_name"]
