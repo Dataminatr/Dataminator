@@ -32,7 +32,7 @@ router.post('/', function(req, res){
       method: 'POST',
       json: {
 	"username": "Dataminator",
-	"text": "Download the document:" + '<' + link + '>'
+	"text": message
       }
     };
 
