@@ -31,12 +31,11 @@ router.post('/', function(req, res){
 	"username": "Dataminator",
 	"attachments": [
 	  {
-	    "color": "#36a64f",
-            "author_name": userName,
-            "pretext": "*" + userName + "wants to share this* \n",
+	    "color": "#1aa3ff",
+            "author_name": 'Courtesy of @' + userName,
 	    "title": "Document Download",
             "title_link": link,
-	    "thumb_url": "http://example.com/path/to/thumb.png",
+	    "thumb_url": "http://johnprados.com/wp-content/uploads/2013/08/word.png",
 	    "mrkdwn_in": ["text", "pretext"]
 	  }
 	], 
