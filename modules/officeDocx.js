@@ -27,6 +27,7 @@ module.exports = function(text){
 
   pObj.addText ( text );
   docx.putPageBreak ();
+  pObj.addText ( 'Made with unicorn tears from Dataminator');
 
   var filename = Date.now();
   var remoteWriteStream = bucket.file(filename).createWriteStream();
