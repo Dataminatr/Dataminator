@@ -15,16 +15,13 @@ router.post('/', function(req, res){
   var imageURL = req.body.text;
   var userName = req.body.user_name;
   var responseURL = req.body.response_url;
-    
+
   res.send('processing request ...');
 
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
 
     var text = result.responses[0].textAnnotations[0].description;
     var link = officeDocs(text);
-    var message = "" + 
-                  "" + userName + " wants to share this \n" + "< " + link + "|:memo::printer:Download:arrow_double_down:>" + 
-                  ""
 
     var options = {
       uri: responseURL,
@@ -32,13 +29,23 @@ router.post('/', function(req, res){
       json: {
 	"response_type": "in_channel",
 	"username": "Dataminator",
-	"text": message
+	"attachments": [
+	  {
+	    "color": "#36a64f",
+            "author_name": userName,
+            "pretext": "*" + userName + "wants to share this* \n",
+	    "title": "Document Download",
+            "title_link": link,
+	    "thumb_url": "http://example.com/path/to/thumb.png",
+	    "mrkdwn_in": ["text", "pretext"]
+	  }
+	], 
       }
     };
 
-    request(options, function( err, response, body){
-      if(err) console.log(err);
-    });
+  request(options, function( err, response, body){
+    if(err) console.log(err);
+  });
   })
 });
 
