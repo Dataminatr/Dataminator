@@ -13,6 +13,8 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.post('/', function(req, res){
   console.log('this is it',req.body);
   var imageURL = req.body.text;
+  var responseURL = req.body.response_url;
+    
   res.send('request processing...');
 
   googleVision.visionImage(imageURL, 'TextDetection', function(err,result){
@@ -21,11 +23,10 @@ router.post('/', function(req, res){
     console.log(text);
 
     var options = {
-      uri: 'https://hooks.slack.com/commands/T0P9WTN3D/23404613106/l3x5HGnINuHrXz2sk50k4PO4',
+      uri: responseURL,
       method: 'POST',
       json: {
 	"username": "Dataminator",
-	"icon_emoji": ":robot_face:",
 	"text": text 
       }
     };
