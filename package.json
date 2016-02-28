@@ -8,6 +8,7 @@
     "ejs": "2.3.3",
     "express": "^4.13.4",
     "gc-vision-api": "^0.1.0",
+    "gcloud": "^0.28.0",
     "google-auth-library": "^0.9.7",
     "googleapis": "^2.1.7",
     "lodash": "^4.5.0",
